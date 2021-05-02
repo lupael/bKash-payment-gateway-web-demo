@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +16,6 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/themes/bootstrap.min.css"/>
     <link href="../../resource/css/checkout.css" rel="stylesheet"/>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                    crossorigin="anonymous"></script>
-                    <script src="https://scripts.sandbox.bka.sh/versions/1.1.0-beta/checkout/bKash-checkout-sandbox.js"></script>
-                    
 </head>
 
 <body class="text-center">
@@ -268,11 +265,11 @@
                                 <div class="container">
         <pre>
                 <code class="language-html">
-                    <head>
-                    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                    crossorigin="anonymous"></script>
-                    <script src="https://scripts.sandbox.bka.sh/versions/1.1.0-beta/checkout/bKash-checkout-sandbox.js"></script>
-                    </head>
+                    &lt;head>
+                    &lt;script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                    crossorigin="anonymous">&lt;/script>
+                    &lt;script src="https://scripts.sandbox.bka.sh/versions/1.1.0-beta/checkout/bKash-checkout-sandbox.js">&lt;/script>
+                    &lt;/head>
                 </code>
             </pre>
                                 </div>
@@ -285,7 +282,7 @@
         <pre>
             <code class="language-html">
                 //Initially keep the button disabled / don't display the button / show some animations
-                         <button id="bKash_button" disabled="disabled">Pay With bKash</button>
+                         &lt;button id="bKash_button" disabled="disabled">Pay With bKash&lt;/button>
             </code>
 
         </pre>
@@ -564,7 +561,7 @@
                                             if (this.value == 'immediate') {
                                                 if ($("#isAggregrator").is(":checked")) {
                                                     merchantAssociationInfo = document.getElementById("merchantAssociationInfo").value;
-                                                    merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "<").replace(/>/g, ">");
+                                                    merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                                                     if (merchantAssociationInfo != null || !merchantAssociationInfo.isEmptyObject()) {
                                                         bKash.reconfigure({
                                                             paymentRequest: {
@@ -594,7 +591,7 @@
 
 
                                                     merchantAssociationInfo = document.getElementById("merchantAssociationInfo").value
-                                                    merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "<").replace(/>/g, ">");
+                                                    merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                                                     if (merchantAssociationInfo != null || !merchantAssociationInfo.isEmptyObject()) {
                                                         bKash.reconfigure({
                                                             paymentRequest: {
@@ -652,7 +649,7 @@
         console.log('Change Amount Clicked');
         var amountRegex = /^\d+(\.\d{2})?$/;
         var new_amount = $("#new_amount").val();
-        new_amount = new_amount.replace(/</g, "<").replace(/>/g, ">");
+        new_amount = new_amount.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
         if (amountRegex.test(new_amount)) {
             $('#amount').text(new_amount);
@@ -663,7 +660,7 @@
 
                 if ($("#isAggregrator").is(":checked")) {
                     merchantAssociationInfo = document.getElementById("merchantAssociationInfo").value;
-                    merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "<").replace(/>/g, ">");
+                    merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                     if (merchantAssociationInfo != null || !merchantAssociationInfo.isEmptyObject()) {
                         bKash.reconfigure({
                             paymentRequest: {
@@ -688,7 +685,7 @@
                 if ($("#isAggregrator").is(":checked")) {
 
                     merchantAssociationInfo = document.getElementById("merchantAssociationInfo").value;
-                    merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "<").replace(/>/g, ">");
+                    merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                     if (merchantAssociationInfo != null || !merchantAssociationInfo.isEmptyObject()) {
                         bKash.reconfigure({
                             paymentRequest: {
@@ -730,7 +727,7 @@
         if ($('input[type=radio][name=paymentType]').val() == 'immediate') {
             if ($("#isAggregrator").is(":checked")) {
                 merchantAssociationInfo = document.getElementById("merchantAssociationInfo").value;
-                merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "<").replace(/>/g, ">");
+                merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                 if (merchantAssociationInfo != null || !merchantAssociationInfo.isEmptyObject()) {
                     bKash.reconfigure({
                         paymentRequest: {
@@ -747,7 +744,7 @@
 
             } else if (this.value == 'authNcapture') {
                 merchantAssociationInfo = document.getElementById("merchantAssociationInfo").value
-                merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "<").replace(/>/g, ">");
+                merchantAssociationInfo = merchantAssociationInfo.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                 if (merchantAssociationInfo != null || !merchantAssociationInfo.isEmptyObject()) {
                     bKash.reconfigure({
                         paymentRequest: {
@@ -768,7 +765,7 @@
 
     $('#searchTransaction_btn').click(function () {
         var transactionID = document.getElementById('searchTransaction').value;
-        transactionID = transactionID.replace(/</g, "<").replace(/>/g, ">");
+        transactionID = transactionID.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         console.log('Search Transaction response:: transactionID' + transactionID + " Search Transaction URL: "+ merchantUrlSet.checkoutSearchTransactionURL);
         searchTransactionResponse(transactionID, merchantUrlSet.checkoutSearchTransactionURL)
             .done(function (response) {
@@ -786,15 +783,15 @@
     });
     $('#requestRefund_btn').click(function () {
         var transactionID = document.getElementById('transactionIdForRefund').value;
-        transactionID = transactionID.replace(/</g, "<").replace(/>/g, ">");
+        transactionID = transactionID.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         var paymentID = document.getElementById('paymentIdForRefund').value;
-        paymentID = paymentID.replace(/</g, "<").replace(/>/g, ">");
+        paymentID = paymentID.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         var amount = document.getElementById('amountForRefund').value;
-        amount = amount.replace(/</g, "<").replace(/>/g, ">");
+        amount = amount.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         var sku = document.getElementById('skuForRefund').value;
-        sku = sku.replace(/</g, "<").replace(/>/g, ">");
+        sku = sku.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         var reason = document.getElementById('reasonForRefund').value;
-        reason = reason.replace(/</g, "<").replace(/>/g, ">");
+        reason = reason.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         console.log('Refund response:: transactionID' + transactionID + " Refund URL: "+ merchantUrlSet.checkoutRefundURL);
         refundResponse(transactionID,paymentID,amount,sku,reason, merchantUrlSet.checkoutRefundURL)
             .done(function (response) {
@@ -813,7 +810,7 @@
 
     $('#query_payment_btn').click(function () {
         var paymentId = document.getElementById('paymentIdForquery').value;
-        paymentId = paymentId.replace(/</g, "<").replace(/>/g, ">");
+        paymentId = paymentId.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         console.log('queryPayment response:: paymentId' + paymentId);
         paymentStatusResponse(paymentId, merchantUrlSet.checkoutPaymentStatusURL)
             .done(function (response) {
